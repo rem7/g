@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
-# Usage: g run
-# Summary: run a go file with the currenct project...
-# Help: g run main.go
+# Usage: g resolve
+# Summary: resolves all the dependencies in a golangdeps file
+# Help: g resolve
 
 set -e
 

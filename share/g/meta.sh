@@ -39,6 +39,7 @@ export setGoPath
 
 
 function addDependency {
+  
   setGoPath
 
   while read line; do
