@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+# Usage: g get
+# Summary: gets a dependency, optionally checks out a specific commit
+# Help: g get github.com/user/package [commit]
+
+set -e
+source $_G_ROOT/share/g/meta.sh
+
+# lets set our gopath...
+setGoPath
+
+if [[ $1 == "" ]]; then
+  echo "Please provide a package"
+  return
+fi
+
+go get $1
+
+# If a commit was specified CD into the dir and check it out
+if [[ $2 != "" ]]; then
+  cd $PROJECT_DIR/_vendor/src/$1
+
+  # TODO
+  # Handle logic for different source controls, git, hg, svn, etc...
+  git checkout $2 &>/dev/null
+  rm -rf $PROJECT_DIR/_vendor/pkg/
+fi
+
+cd $PROJECT_DIR
+addDependency $*

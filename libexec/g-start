@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# Usage: g start
+# Summary: start a go project
+# Help: starts a go project
+
+set -e
+
+mkdir _vendor
+touch golangdeps
+touch .gitignore
+echo "_vendor/"  >> .gitignore

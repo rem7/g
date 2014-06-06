@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# Usage: g run
+# Summary: run a go file with the currenct project...
+# Help: g run main.go
+
+set -e
+
+source $_G_ROOT/share/g/meta.sh
+setGoPath
+
+while read line; do
+    echo "Resolving $line"
+    g get $line
+done < golangdeps
+
